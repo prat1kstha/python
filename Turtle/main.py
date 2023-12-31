@@ -1,8 +1,6 @@
 from turtle import Screen, Turtle
 import random
 
-from networkx import draw
-
 timmy = Turtle()
 # timmy.shape("turtle")
 
