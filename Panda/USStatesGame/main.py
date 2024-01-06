@@ -41,13 +41,9 @@ while (is_game_on):
 
     if answer_state is None or answer_state.lower() == "exit" or len(guessed_states) == len(all_states):
         is_game_on = False
-        missing_states = []
 
-        for state in all_states:
-            if state not in guessed_states:
-                missing_states.append(state)
-
-
+        missing_states = [state for state in all_states if state not in guessed_states]
+        
         new_data = pandas.DataFrame(missing_states)    
         print(new_data)
         new_data.to_csv(remaining_states_file)
