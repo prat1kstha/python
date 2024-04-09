@@ -1,7 +1,8 @@
 import requests
+import os
 
-OWN_Endpoint = "https://api.openweathermap.org/data/2.5/forecast"
-api_key="d14a82f4bc69daa539146d54a663d82c"
+OWM_Endpoint = "https://api.openweathermap.org/data/2.5/forecast"
+api_key=os.environ.get('OWM_API_KEY')
 
 weather_params = {
     "lat": "27.66641253286814",
@@ -9,7 +10,7 @@ weather_params = {
     "appid": api_key
 }
 
-response = requests.get(OWN_Endpoint, params=weather_params)
+response = requests.get(OWM_Endpoint, params=weather_params)
 response.raise_for_status()
 
 # print(response.status_code)
